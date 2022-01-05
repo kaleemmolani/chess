@@ -3,10 +3,14 @@ const cheerio = require('cheerio');
 const express = require('express');
 const app = express();
 var arrayOfThisRow = {};
+var list 
+
 const port = process.env.PORT || 3000;
 axios.get('https://www.chessgames.com/chessecohelp.html')
       .then(response => {
           const $ = cheerio.load(response.data);
+          list = response.data;
+
           $("table").each(function() {
               var tableData = $(this).find('td');
               if (tableData.length > 0) {
@@ -24,7 +28,8 @@ axios.get('https://www.chessgames.com/chessecohelp.html')
       });
 
 app.get('/', (req, res) => {
-  res.send(arrayOfThisRow);
+  res.send(list);
+
 });
 app.get('/:code/*',(req,res)=>{
   let s= arrayOfThisRow[req.params.code].toString();
