@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const express = require('express');
 const app = express();
 var arrayOfThisRow = {};
+const port = process.env.PORT || 3000;
 axios.get('https://www.chessgames.com/chessecohelp.html')
       .then(response => {
           const $ = cheerio.load(response.data);
@@ -28,7 +29,7 @@ app.get('/:code',(req,res)=>{
         
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server is running on port 3000');
 }
 );
