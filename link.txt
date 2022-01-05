@@ -1,3 +1,5 @@
 url : https://immense-fjord-81587.herokuapp.com/
 
 example url with code : https://immense-fjord-81587.herokuapp.com/C87
+
+example for next move : https://immense-fjord-81587.herokuapp.com/C87/e4/e5/nf3/nc6/bb5/a6/ba4
